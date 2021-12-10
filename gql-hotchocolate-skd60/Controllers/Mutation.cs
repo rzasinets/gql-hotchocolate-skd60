@@ -8,7 +8,7 @@
 
   public class Mutation
   {
-    public Book CreateBook(CreateBookInput input)
+    public Book? CreateBook(CreateBookInput input)
     {
       if (input.ThrowEr)
       {

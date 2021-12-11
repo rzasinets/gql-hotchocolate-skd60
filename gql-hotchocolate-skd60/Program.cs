@@ -1,6 +1,7 @@
 using FluentValidation;
 
 using gql_hotchocolate_skd60.Controllers;
+using gql_hotchocolate_skd60.GraphQL.Setup;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ services.AddValidatorsFromAssemblyContaining<Program>();
 services.AddGraphQLServer()
   .AddQueryType<Query>()
   .AddMutationType<Mutation>()
+  .RegisterGQLTypes()
   .AddAuthorization()
   .AddFairyBread();
 

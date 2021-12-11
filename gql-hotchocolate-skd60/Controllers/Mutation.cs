@@ -1,7 +1,6 @@
 ﻿namespace gql_hotchocolate_skd60.Controllers
 {
-  using System;
-
+  using gql_hotchocolate_skd60.GraphQL.Payload;
   using gql_hotchocolate_skd60.Models;
 
   public class Mutation
@@ -10,7 +9,12 @@
     {
       if (input.ThrowEr)
       {
-        throw new Exception("Ex");
+        return CreateBookPayload.Error(new InternalServerError());
+      }
+
+      if (input.Title == "555")
+      {
+        return CreateBookPayload.Error(new CreateBookHandleNotUniqueError());
       }
 
       return new CreateBookPayload { Book = new Book { Title = input.Title, Author = new Author { Name = "Jon Skeet" } } };

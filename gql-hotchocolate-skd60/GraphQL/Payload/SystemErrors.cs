@@ -1,12 +1,6 @@
 ﻿namespace gql_hotchocolate_skd60.GraphQL.Payload;
 
-public interface ISystemError
-{
-  string Type { get; init; }
-  string? Details { get; set; }
-}
-
-public class SystemError : ISystemError
+public class SystemError : IBaseError
 {
   public string? Details { get; set; }
 

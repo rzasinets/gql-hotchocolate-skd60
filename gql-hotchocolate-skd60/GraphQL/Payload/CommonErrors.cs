@@ -1,26 +1,23 @@
 ﻿namespace gql_hotchocolate_skd60.GraphQL.Payload;
 
-public class CommonError : IBaseError
+public class HandleNotUniqueError : BaseError
 {
-  public string? Details { get; set; }
-
-  public string Type { get; init; }
-}
-
-public abstract class HandleNotUniqueError : CommonError
-{
-  protected HandleNotUniqueError(string? details = null)
+  public HandleNotUniqueError(string? details = null)
   {
     Type = "handle-not-unique";
     Details = details;
   }
 }
 
-public abstract class ResourceNotFoundError : CommonError
+public class HandleNotUniqueErrorType : ObjectType<HandleNotUniqueError> { }
+
+public class ResourceNotFoundError : BaseError
 {
-  protected ResourceNotFoundError(string? details = null)
+  public ResourceNotFoundError(string? details = null)
   {
     Type = "resource-not-found";
     Details = details;
   }
 }
+
+public class ResourceNotFoundErrorType : ObjectType<ResourceNotFoundError> { }

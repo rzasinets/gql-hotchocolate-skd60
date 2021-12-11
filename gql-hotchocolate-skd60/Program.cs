@@ -1,7 +1,10 @@
 using FluentValidation;
 
 using gql_hotchocolate_skd60.Controllers;
+using gql_hotchocolate_skd60.GraphQL.Payload;
 using gql_hotchocolate_skd60.GraphQL.Setup;
+
+using HotChocolate.AspNetCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -14,6 +17,7 @@ services.AddGraphQLServer()
   .AddQueryType<Query>()
   .AddMutationType<Mutation>()
   .RegisterGQLTypes()
+  .AddType<IBaseError>()
   .AddAuthorization()
   .AddFairyBread();
 
@@ -21,5 +25,6 @@ services.AddGraphQLServer()
 var app = builder.Build();
 
 app.MapGraphQL();
+app.UsePlayground("/graphql", "/playground");
 
 app.Run();

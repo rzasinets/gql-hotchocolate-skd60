@@ -9,12 +9,12 @@
     {
       if (input.ThrowEr)
       {
-        return CreateBookPayload.Error(new InternalServerError());
+        return CreateBookPayload.ThrowError(new InternalServerError());
       }
 
       if (input.Title == "555")
       {
-        return CreateBookPayload.Error(new CreateBookHandleNotUniqueError());
+        return CreateBookPayload.ThrowError(new HandleNotUniqueError());
       }
 
       return new CreateBookPayload { Book = new Book { Title = input.Title, Author = new Author { Name = "Jon Skeet" } } };

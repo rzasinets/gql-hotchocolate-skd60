@@ -15,6 +15,11 @@
     }
   }
 
+  /// <summary>
+  /// Description
+  /// <see cref="HandleNotUniqueErrorType"/> - handle non unique
+  /// <see cref="InternalServerErrorType"/> - something bad happened on server
+  /// </summary>
   public interface ICreateBookError { }
 
   public class CreateBookErrorUnion : UnionType<ICreateBookError>

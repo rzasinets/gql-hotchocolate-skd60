@@ -1,7 +1,7 @@
 using FluentValidation;
 
 using gql_hotchocolate_skd60.Controllers;
-using gql_hotchocolate_skd60.GraphQL.Payload;
+using gql_hotchocolate_skd60.GraphQL;
 using gql_hotchocolate_skd60.GraphQL.Setup;
 
 using HotChocolate.AspNetCore;
@@ -17,10 +17,12 @@ services.AddGraphQLServer()
   .AddQueryType<Query>()
   .AddMutationType<Mutation>()
   .RegisterGQLTypes()
-  .AddType<IBaseError>()
   .AddAuthorization()
   .AddErrorFilter<MyErrorFilter>()
-  .AddFairyBread();
+  .AddMutationConventions(true)
+  .AddErrorInterfaceType<IMyError>()
+  // TODO Validation is broken
+  /*.AddFairyBread()*/;
 
 
 var app = builder.Build();

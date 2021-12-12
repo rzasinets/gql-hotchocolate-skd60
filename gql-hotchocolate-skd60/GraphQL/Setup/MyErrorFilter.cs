@@ -1,7 +1,5 @@
 ﻿namespace gql_hotchocolate_skd60.GraphQL.Setup;
 
-using System.Diagnostics;
-
 public class MyErrorFilter:IErrorFilter
 {
   public IError OnError(IError err)

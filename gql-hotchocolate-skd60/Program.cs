@@ -19,6 +19,7 @@ services.AddGraphQLServer()
   .RegisterGQLTypes()
   .AddType<IBaseError>()
   .AddAuthorization()
+  .AddErrorFilter<MyErrorFilter>()
   .AddFairyBread();
 
 

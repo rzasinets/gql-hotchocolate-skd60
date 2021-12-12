@@ -6,8 +6,10 @@ namespace gql_hotchocolate_skd60.Controllers
 
   public class Mutation
   {
+    
     [Error(typeof(InternalServerError))]
     [Error(typeof(HandleNotUniqueError))]
+    //[Authorize]
     public Book CreateBook(CreateBookInput input)
     {
       if (input.ThrowEr)

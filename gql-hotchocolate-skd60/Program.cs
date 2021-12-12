@@ -22,7 +22,7 @@ services.AddGraphQLServer()
   .AddMutationConventions(true)
   .AddErrorInterfaceType<IMyError>()
   // TODO Validation is broken
-  /*.AddFairyBread()*/;
+  .AddFairyBread();
 
 
 var app = builder.Build();

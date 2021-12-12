@@ -29,6 +29,9 @@
       
       descriptor.Type<HandleNotUniqueErrorType>();
       descriptor.Type<InternalServerErrorType>();
+      // New from Mediatr
+      descriptor.Type<UnAuthorisedErrorType>();
+      descriptor.Type<ValidationErrorType>();
     }
   }
 }
